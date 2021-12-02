@@ -37,55 +37,133 @@
                                 <h1 class="h4 text-gray-900 mb-4">Crea un usuario!</h1>
                             </div>
                             <form class="user" method="POST" id="form">
-                               <div class="form-group row">
+                                <div class="form-group col-sm-6 mb-3">
+                                    <input type="text" class="form-control form-control-user" id="IDType"
+                                        placeholder="Selected Type">
+                                </div>
+                                <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="ID"
                                             placeholder="ID">
                                     </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="IDentification"
+                                            placeholder="Identification">
+                                    </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Mid" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Midentification" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                </div>        
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="FirstName"
                                             placeholder="Nombres">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="LastName"
-                                            placeholder="Apellidos">
-                                    </div>
-                                    <a id="Mname" style="color: red;">Ninguno de estos campos puede estar vacio!</a> 
+                                        <input type="text" class="form-control form-control-user" id="Address"
+                                            placeholder="direccion">
+                                    </div>                                    
                                 </div>
                                 <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Mname" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Maddress" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="celphone" class="form-control form-control-user" id="Celphone"
+                                            placeholder="Telefono">
+                                    </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="email" class="form-control form-control-user" id="InputEmail"
                                             placeholder="Correo electronico">
                                     </div>                                    
                                 </div>
-                                <a id="Memail" style="color: red;">Este campo no puede estar vacio!</a> 
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user"
-                                        id="Password" placeholder="Contraseña">
-                                   <a id="Mpassword" style="color: red;">Este campo no puede estar vacio!</a> 
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Mcelphone" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Memail" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
                                 </div>
-                                <button id="submitbtn" class="btn btn-primary btn-user btn-block"><i class="fas fa-file"
-                                        style="color: white;"></i> Registrar usuario</button>
-                                <!-- <input type="submit" class="btn btn-primary btn-user btn-block"> Register Account -->
-                                <hr>
-                                <!--<a href="table_admins.html" class="btn btn-google btn-user btn-block">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="Password"
+                                            placeholder="Contraseña">
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="Zone"
+                                            placeholder="zone">
+                                    </div>                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Mpassword" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <a id="Mzone" style="color: red;">Este campo no puede estar vacio!</a>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <nav class="navbar navbar-expand navbar-light bg-light mb-4">
+                                <a class="navbar-brand" href="#">seleccione un tipo! </a>
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item dropdown" id="barra">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Tipo
+                                        </a>
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Coordinador de Zona
+                                        </a>
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Asesor Comercial
+                                        </a>
+                                        <div id="client" class="dropdown-menu dropdown-menu-right animated--grow-in"
+                                            aria-labelledby="navbarDropdown">
+                                            <a onclick="selectType(1)" class="dropdown-item" href="#">Coordinador de
+                                                Zona</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a onclick="selectType(2)" class="dropdown-item" href="#">Asesor
+                                                Comercial</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <a id="Mtype" style="color: red;">Este campo no puede estar vacio!</a>
+                        </div>
+                        <button id="submitbtn" class="btn btn-primary btn-user btn-block"><i class="fas fa-file"
+                                style="color: white;"></i> Registrar usuario</button>
+                        <!-- <input type="submit" class="btn btn-primary btn-user btn-block"> Register Account -->
+                        <hr>
+                        <!--<a href="table_admins.html" class="btn btn-google btn-user btn-block">
                                     <i class="fas fa-undo" style="color: white;"></i> Return to admin table
                                 </a>-->
-                            </form>
-                            <hr>
-                            <!--<div class="text-center">
+                        </form>
+                        <hr>
+                        <!--<div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>-->
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
-                            </div>
+                        <div class="text-center">
+                            <a class="small" href="login.html">Already have an account? Login!</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
     <!-- Bootstrap core JavaScript-->

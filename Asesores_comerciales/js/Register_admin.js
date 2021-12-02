@@ -1,28 +1,58 @@
 $(document).ready(function (e) {
-    $('#ID').hide();
-    $('#Mname').hide();
-    $('#Memail').hide();
-    $('#Mpassword').hide();
+    //$('#ID').hide();
+    $('#Mid').hide(0);
+    $('#Midentification').hide(0);
+    $('#Mname').hide(0);
+    $('#Maddress').hide(0);
+    $('#Mcelphone').hide(0);
+    $('#Memail').hide(0);
+    $('#Mpassword').hide(0);
+    $('#Mzone').hide(0);
+    $('#MType').hide(0);
+    $('#navbarDropdown1').hide(0);
+    $('#navbarDropdown2').hide(0);
+    $('#IDType').hide(0);
 });
 $('#submitbtn').click(function (e) {
     e.preventDefault()
-   // var id = $('#ID').val();
+    var id = $('#ID').val();
+    var identification = $('#IDentification').val();
     var firstname = $('#FirstName').val();
-    var secondname = $('#LastName').val();
+    var address = $('#Address').val();
+    var celphone = $('#Celphone').val();
     var email = $('#InputEmail').val();
     var password = $('#Password').val();
+    var zone = $('#Zone').val();
+    var type = $('#IDType').val();
+    if(type==1){
+        type="COORD";
+    }else{
+        type="ASES";
+    }
+    console.log(id);
+    console.log(identification);
     console.log(firstname);
-    console.log(secondname);
+    console.log(address);
+    console.log(celphone);
     console.log(email);
     console.log(password);
+    console.log(zone);
+    console.log(type);
 
     let datos={
+        id:id,
+        identification:identification,
+        name: firstname,
+        address:address,
+        cellPhone:celphone,
         email: email,
-        name: firstname + " " + secondname,
-        password: password
+        password: password,
+        zone: zone,
+        type:type
     }
    
     let datosPeticion = JSON.stringify(datos);
+    console.log(datosPeticion);
     if (validarEditar()) {
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
@@ -68,51 +98,112 @@ $('#submitbtn').click(function (e) {
     }
 
     function clearfield() {
-     //   $("#ID").val("");
+        $("#ID").val("");
+        $("#Identification").val("");
         $("#FirstName").val("");
-        $("#LastName").val("");
+        $("#Celphone").val("");
+        $("#Address").val("");
         $("#InputEmail").val("");
         $("#Password").val("");
-        $("#Age").val("");
+        $("#Type").val("");
     }
 });
 
+function selectType(llaveRegistro) {
+    console.log(llaveRegistro);
+    $('#navbarDropdown').hide(5);
+    var idNumber = $('#IDnumber').val();
+    for (let index = 1; index <= 2; index++) {
+        if (llaveRegistro == index) {
+            console.log("Entro");
+            $('#navbarDropdown' + llaveRegistro).show(5);
+            $("#IDType").val(llaveRegistro);
+        } else {
+            $('#navbarDropdown' + index).hide(5);
+        }
+    }
+}
+
 function validarEditar(){
-    $('#Mname').hide(5);
-    $('#Memail').hide(5);
-    $('#Mpassword').hide(5);
+    $('#Mid').hide();
+    $('#Midentification').hide();
+    $('#Mname').hide();
+    $('#Maddress').hide();
+    $('#Mcelphone').hide();
+    $('#Memail').hide();
+    $('#Mpassword').hide();
+    $('#Mzone').hide();
+    $('#MType').hide();
+    $('#navbarDropdown1').hide();
+    $('#navbarDropdown2').hide();
+    $('#IDType').hide();
     //obtiene valores
+    let id = $('#ID').val();
+    let identification = $('#IDentification').val();
     let firstname = $('#FirstName').val();
-    let secondname = $('#LastName').val();
+    let address = $('#Address').val();
+    let celphone = $('#Celphone').val();
     let email = $('#InputEmail').val();
     let password = $('#Password').val();
-    let errores="";
+    let zone = $('#Zone').val();
+    let type = $('#IDType').val();
     $("#mensajes").html("");
 
     //valida que los campos no sean vacios
-    if(validaesVacio(firstname)) {
+    if(validaesVacio(id)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mname").show(500);
-        $("#nameEdit").focus();
+        $("#Mid").show(500);
+        $("#ID").focus();
         return false;
-    }else if(validaesVacio(secondname)) {
+    }else if(validaesVacio(identification)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Midentification").show(500);
+        $("#IDentification").focus();
+        return false;
+    }else if(validaesVacio(firstname)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Mname").show(500);
-        $("#nameEdit").focus();
+        $("#Firstname").focus();
+        return false;
+    }else if(validaesVacio(address)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Maddress").show(500);
+        $("#Address").focus();
+        return false;
+    }else if(validaesVacio(celphone)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mcelphone").show(500);
+        $("#Celphone").focus();
         return false;
     }else if(validaesVacio(email)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Memail").show(500);
-        $("#nameEdit").focus();
+        $("#InputEmail").focus();
         return false;
     }else if(validaesVacio(password)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Mpassword").show(500);
         $("#nameEdit").focus();
+        return false;
+    }else if(validaesVacio(zone)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mzone").show(500);
+        $("#Zone").focus();
+        return false;
+    }
+    else if(validaesVacio(type)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#MType").show(500);
+        $("#Zone").focus();
         return false;
     }else{
         $("#mensajes").html("");

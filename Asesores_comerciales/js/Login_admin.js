@@ -26,8 +26,8 @@ $("#btnLogin").click(function(){
         console.log(contraseña);
         console.log(url) 
         $.ajax({
-            //url: "http://localhost:8080/api/user/"+datos.email+"/"+datos.contraseña,
-            url: "http://129.151.111.220:8080/api/user/"+datos.email+"/"+datos.contraseña,
+            url: "http://localhost:8080/api/user/"+datos.email+"/"+datos.contraseña,
+           // url: "http://129.151.111.220:8080/api/user/"+datos.email+"/"+datos.contraseña,
             method: "GET",
             dataType: "json",
             success: function(datos){
