@@ -1,14 +1,17 @@
 $(document).ready(function (e) {
     //$('#ID').hide();
     $('#Mid').hide(0);
-    $('#Midentification').hide(0);
-    $('#Mname').hide(0);
-    $('#Maddress').hide(0);
-    $('#Mcelphone').hide(0);
-    $('#Memail').hide(0);
-    $('#Mpassword').hide(0);
-    $('#Mzone').hide(0);
-    $('#MType').hide(0);
+    $('#Mmarca').hide(0);
+    $('#Mmodelo').hide(0);
+    $('#Mprocesador').hide(0);
+    $('#Mos').hide(0);
+    $('#Mdescription').hide(0);
+    $('#Mmemoria').hide(0);
+    $('#Mdisco_duro').hide(0);
+    $('#Mdisponible').hide(0);
+    $('#Mprecio').hide(0);
+    $('#Mcantidad').hide(0);
+    $('#Mfotografia').hide(0);
     $('#navbarDropdown1').hide(0);
     $('#navbarDropdown2').hide(0);
     $('#IDType').hide(0);
@@ -16,39 +19,49 @@ $(document).ready(function (e) {
 $('#submitbtn').click(function (e) {
     e.preventDefault()
     var id = $('#ID').val();
-    var identification = $('#IDentification').val();
-    var firstname = $('#FirstName').val();
-    var address = $('#Address').val();
-    var celphone = $('#Celphone').val();
-    var email = $('#InputEmail').val();
-    var password = $('#Password').val();
-    var zone = $('#Zone').val();
-    var type = $('#IDType').val();
-    if(type==1){
-        type="COORD";
+    var marca = $('#Marca').val();
+    var modelo = $('#Modelo').val();
+    var procesador = $('#Procesador').val();
+    var os = $('#OS').val();
+    var descripcion = $('#Descripcion').val();
+    var memoria = $('#Memoria').val();
+    var discoduro = $('#Disco_duro').val();
+    var precio = $('#Precio').val();
+    var cantidad = $('#Cantidad').val();
+    var fotografia = $('#Fotografia').val();
+    var disponibilidad = $('#IDType').val();
+    
+    if(disponibilidad==1){
+        type="true";
     }else{
-        type="ASES";
+        type="false";
     }
     console.log(id);
-    console.log(identification);
-    console.log(firstname);
-    console.log(address);
-    console.log(celphone);
-    console.log(email);
-    console.log(password);
-    console.log(zone);
-    console.log(type);
+    console.log(marca);
+    console.log(modelo);
+    console.log(procesador);
+    console.log(os);
+    console.log(descripcion);
+    console.log(memoria);
+    console.log(discoduro);
+    console.log(precio);
+    console.log(cantidad);
+    console.log(fotografia);
+    console.log(disponibilidad);
 
     let datos={
         id:id,
-        identification:identification,
-        name: firstname,
-        address:address,
-        cellPhone:celphone,
-        email: email,
-        password: password,
-        zone: zone,
-        type:type
+        brand:marca,
+        model: modelo,
+        procesor:procesador,
+        os:os,
+        description:descripcion,
+        memory:memoria,
+        hardDrive:discoduro,
+        availability:type,
+        price:precio,
+        quantity:cantidad,
+        photography:fotografia
     }
    
     let datosPeticion = JSON.stringify(datos);
@@ -56,8 +69,8 @@ $('#submitbtn').click(function (e) {
     if (validarEditar()) {
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "http://129.151.111.220:8080/api/user/new",
-       // url: "http://localhost:8080/api/user/new",
+        url: "http://129.151.111.220:8080/api/laptop/new",
+       // url: "http://localhost:8080/api/laptop/new",
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
         //si el metodo del servicio recibe datos, es necesario definir el parametro adicional
@@ -82,7 +95,7 @@ $('#submitbtn').click(function (e) {
             //location.reload();
             clearfield();
              mensaje();
-             redireccionar();
+            // redireccionar();
              //getid();
             //listar();
         },
@@ -99,13 +112,18 @@ $('#submitbtn').click(function (e) {
 
     function clearfield() {
         $("#ID").val("");
-        $("#Identification").val("");
-        $("#FirstName").val("");
-        $("#Celphone").val("");
-        $("#Address").val("");
-        $("#InputEmail").val("");
-        $("#Password").val("");
-        $("#Type").val("");
+        $("#Marca").val("");
+        $("#Modelo").val("");
+        $('#Modelo').val("");
+        $('#Procesador').val("");
+        $('#OS').val("");
+        $('#Descripcion').val("");
+        $('#Memoria').val("");
+        $('#Disco_duro').val("");
+        $('#Precio').val("");
+        $('#Cantidad').val("");
+        $('#Fotografia').val("");
+        $('#IDType').val("");
     }
 });
 
@@ -126,27 +144,33 @@ function selectType(llaveRegistro) {
 
 function validarEditar(){
     $('#Mid').hide();
-    $('#Midentification').hide();
-    $('#Mname').hide();
-    $('#Maddress').hide();
-    $('#Mcelphone').hide();
-    $('#Memail').hide();
-    $('#Mpassword').hide();
-    $('#Mzone').hide();
-    $('#MType').hide();
-    $('#navbarDropdown1').hide();
-    $('#navbarDropdown2').hide();
+    $('#Mmarca').hide();
+    $('#Mmodelo').hide();
+    $('#Mprocesador').hide();
+    $('#Mos').hide();
+    $('#Mdescription').hide();
+    $('#Mmemoria').hide();
+    $('#Mdisco_duro').hide();
+    $('#Mdisponible').hide();
+    $('#Mprecio').hide();
+    $('#Mcantidad').hide();
+    $('#Mfotografia').hide();
+   // $('#navbarDropdown1').hide();
+   // $('#navbarDropdown2').hide();
     $('#IDType').hide();
     //obtiene valores
     let id = $('#ID').val();
-    let identification = $('#IDentification').val();
-    let firstname = $('#FirstName').val();
-    let address = $('#Address').val();
-    let celphone = $('#Celphone').val();
-    let email = $('#InputEmail').val();
-    let password = $('#Password').val();
-    let zone = $('#Zone').val();
-    let type = $('#IDType').val();
+    let marca = $('#Marca').val();
+    let modelo = $('#Modelo').val();
+    let procesador = $('#Procesador').val();
+    let os = $('#OS').val();
+    let descripcion = $('#Descripcion').val();
+    let memoria = $('#Memoria').val();
+    let discoduro = $('#Disco_duro').val();
+    let precio = $('#Precio').val();
+    let cantidad = $('#Cantidad').val();
+    let fotografia = $('#Fotografia').val();
+    let disponibilidad = $('#IDType').val();
     $("#mensajes").html("");
 
     //valida que los campos no sean vacios
@@ -156,54 +180,73 @@ function validarEditar(){
         $("#Mid").show(500);
         $("#ID").focus();
         return false;
-    }else if(validaesVacio(identification)) {
+    }else if(validaesVacio(marca)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Midentification").show(500);
-        $("#IDentification").focus();
+        $("#Mmarca").show(500);
+        $("#Marca").focus();
         return false;
-    }else if(validaesVacio(firstname)) {
+    }else if(validaesVacio(modelo)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mname").show(500);
-        $("#Firstname").focus();
+        $("#Mmodelo").show(500);
+        $("#Modelo").focus();
         return false;
-    }else if(validaesVacio(address)) {
+    }else if(validaesVacio(procesador)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Maddress").show(500);
-        $("#Address").focus();
+        $("#Mprocesador").show(500);
+        $("#Procesador").focus();
         return false;
-    }else if(validaesVacio(celphone)) {
+    }else if(validaesVacio(os)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mcelphone").show(500);
-        $("#Celphone").focus();
+        $("#Mos").show(500);
+        $("#OS").focus();
         return false;
-    }else if(validaesVacio(email)) {
+    }else if(validaesVacio(descripcion)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Memail").show(500);
-        $("#InputEmail").focus();
+        $("#Mdescription").show(500);
+        $("#Descripcion").focus();
         return false;
-    }else if(validaesVacio(password)) {
+    }else if(validaesVacio(memoria)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mpassword").show(500);
-        $("#nameEdit").focus();
+        $("#Mmemoria").show(500);
+        $("#Memoria").focus();
         return false;
-    }else if(validaesVacio(zone)) {
+    }else if(validaesVacio(discoduro)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mzone").show(500);
-        $("#Zone").focus();
+        $("#Mdisco_duro").show(500);
+        $("#Disco duro").focus();
         return false;
     }
-    else if(validaesVacio(type)) {
+    else if(validaesVacio(disponibilidad)) {
+         errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mdisponible").show(500);
+        $("#Disponible").focus();
+        return false;
+    }
+    else if(validaesVacio(precio)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#MType").show(500);
-        $("#Zone").focus();
+        $("#Mprecio").show(500);
+        $("#Precio").focus();
+        return false;
+    }else if(validaesVacio(cantidad)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mcantidad").show(500);
+        $("#Cantidad").focus();
+        return false;
+    }else if(validaesVacio(fotografia)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mfotografia").show(500);
+        $("#Fotografia").focus();
         return false;
     }else{
         $("#mensajes").html("");
@@ -217,7 +260,7 @@ function validaesVacio(dato){
 }
 
 function mensaje(){
-    alert("Usuario creado exitosamente!!!")
+    alert("Producto creado exitosamente!!!")
 }
 
 function redireccionar() {
