@@ -6,7 +6,7 @@ $(document).ready(function (e) {
     //$('#IDType').hide(0);
 
 
-    $.getJSON("http://localhost:8080/api/laptop/all", 
+    $.getJSON("http://129.151.111.220:8080/api/laptop/all", 
     function (data) {
         var client_data="";
         $.each(data,function(key,value){
@@ -320,7 +320,8 @@ function editarRegistro(llaveRegistro) {
     if (validarEditar(llaveRegistro)) {
         $.ajax({
             // la URL para la petición (url: "url al recurso o endpoint")
-            url: "http://localhost:8080/api/laptop/update",
+            url: "http://129.151.111.220:8080/api/laptop/update",
+//            url: "http://localhost:8080/api/laptop/update",
 
             // la información a enviar
             // (también es posible utilizar una cadena de datos)
