@@ -79,10 +79,10 @@ $('#submitbtn').click(function (e) {
             $("#mensajes").show(1000);
             $("#mensajes").html("Registro Agregado...");
             $("#mensajes").hide(1000);
-            //location.reload();
+            location.reload();
             clearfield();
              mensaje();
-             redireccionar();
+             //redireccionar();
              //getid();
             //listar();
         },
