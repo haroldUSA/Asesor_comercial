@@ -4,7 +4,8 @@ $(document).ready(function (e) {
     var email = $('#InputEmail').val();
     var age = $('#Age').val();*/
     //$('#IDType').hide(0);
-
+    
+    availability=2;
 
     $.getJSON("http://129.151.111.220:8080/api/laptop/all", 
     function (data) {
@@ -201,7 +202,6 @@ function actualizar(llaveRegistro){
     $('#navbarDropdown11'+llaveRegistro).hide();
     $('#navbarDropdown22'+llaveRegistro).hide();
 }
-
 function selectType(llaveRegistro, id) {
     console.log(llaveRegistro);
     console.log(id);

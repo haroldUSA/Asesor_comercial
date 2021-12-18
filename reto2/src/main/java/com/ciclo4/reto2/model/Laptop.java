@@ -24,7 +24,7 @@ public class Laptop {
     private String description;
     private String memory;
     private String hardDrive;
-    private String availability;
+    private boolean availability=true;
     private double price;
     private int quantity;
     private String photography;
