@@ -121,8 +121,7 @@ $(document).ready(function (e) {
                         <a id="MType${value.id}" style="color: red;">this field cannot be blank!</a>    
                     </div>
                     <div class="col-sm-6 mb-3 mb-sm-0"><a onclick="editarRegistro(${value.id})"
-                            class="btn btn-primary btn-user btn-block ">Update
-                            admin!</a></div>
+                            class="btn btn-primary btn-user btn-block ">Actualizar usuario!</a></div>
                     <div class="collapse-divider"></div>
                 </div>
             </div>
