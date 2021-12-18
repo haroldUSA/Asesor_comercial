@@ -61,6 +61,9 @@ public class LaptopService {
                 if(laptop.getHardDrive() != null){
                     optionalLaptop.get().setHardDrive(laptop.getHardDrive());
                 }
+                if(laptop.getAvailability() != null){
+                    optionalLaptop.get().setAvailability(laptop.getAvailability());
+                }
                 if(laptop.getPrice() != 0.00){
                     optionalLaptop.get().setPrice(laptop.getPrice());
                 }
