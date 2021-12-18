@@ -3,23 +3,26 @@ $(document).ready(function (e) {
     var secondname = $('#LastName').val();
     var email = $('#InputEmail').val();
     var age = $('#Age').val();*/
-    $('#IDType').hide(0);
+    //$('#IDType').hide(0);
 
 
-    $.getJSON("http://129.151.111.220:8080/api/user/all", 
+    $.getJSON("http://localhost:8080/api/laptop/all", 
     function (data) {
         var client_data="";
         $.each(data,function(key,value){
         client_data+='<tr>';
         client_data+='<td>'+value.id+'</td>';
-        client_data+='<td>'+value.identification+'</td>';
-        client_data+='<td>'+value.address+'</td>';
-        client_data+='<td>'+value.cellPhone+'</td>';
-        client_data+='<td>'+value.name+'</td>';
-        client_data+='<td>'+value.email+'</td>';
-        client_data+='<td>'+value.password+'</td>';
-        client_data+='<td>'+value.zone+'</td>';
-        client_data+='<td>'+value.type+'</td>';
+        client_data+='<td>'+value.brand+'</td>';
+        client_data+='<td>'+value.model+'</td>';
+        client_data+='<td>'+value.procesor+'</td>';
+        client_data+='<td>'+value.os+'</td>';
+        client_data+='<td>'+value.description+'</td>';
+        client_data+='<td>'+value.memory+'</td>';
+        client_data+='<td>'+value.hardDrive+'</td>';
+        client_data+='<td>'+value.availability+'</td>';
+        client_data+='<td>'+value.price+'</td>';
+        client_data+='<td>'+value.quantity+'</td>';
+        client_data+='<td>'+value.photography+'</td>';
        // client_data+='<td>'+value.password+'</td>';
         client_data+=`<td align="center"><button  style="background-color:#224abe"
         class="rectangular-circle border-6" id="Editbuttom${value.id}"><a onclick="actualizar(${value.id})"
@@ -35,99 +38,117 @@ $(document).ready(function (e) {
                     <h6 class="collapse-header" style="color:#224abe">Opciones:
                     </h6>
                     <a class="collapse-item"
-                        >IDENTIFICACION
+                        >MARCA
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="IDentification${value.id}" placeholder="Identificacion">
-                            <a id="Midentification${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Brand${value.id}" placeholder="Marca">
+                            <a id="Mmarca${value.id}" style="color: red;">Este campo no puede estar vacio!</a>
                     </div>
                     <a class="collapse-item"
-                        >NOMBRE
+                        >MODELO
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="Name${value.id}" placeholder="Nombre">
-                            <a id="Mname${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Model${value.id}" placeholder="Modelo">
+                            <a id="Mmodelo${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
                     </div>
                     <a class="collapse-item"
-                        >DIRECCION
+                        >PROCESADOR
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="Address${value.id}" placeholder="Direccion">
-                            <a id="Maddress${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Procesor${value.id}" placeholder="Procesador">
+                            <a id="Mprocesador${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
                     </div>
                     <a class="collapse-item"
-                        >TELEFONO
+                        >OS
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="Celphone${value.id}" placeholder="telefono">
-                            <a id="Mcelphone${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="OS${value.id}" placeholder="OS">
+                            <a id="Mos${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
                     </div>                                        
                     <a class="collapse-item"
-                        >CORREO
+                        >DESCRIPCION
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="Email${value.id}" placeholder="Correo">
-                            <a id="Memail${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Description${value.id}" placeholder="Descripcion">
+                            <a id="Mdescripcion${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
                     </div>
                     <a class="collapse-item"
-                        >CONTRASEÑA
+                        >MEMORIA
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="Password${value.id}" placeholder="Contraseña">
-                            <a id="Mpassword${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Memory${value.id}" placeholder="Memoria">
+                            <a id="Mmemoria${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
                     </div>
                     <a class="collapse-item"
-                        >ZONA
+                        >DISCO DURO
                     </a>
                     <div class="form-group"><label
-                            for="example"></label><input type="text" class="form-control form-control-user" id="Zone${value.id}" placeholder="Zona">
-                            <a id="Mzone${value.id}" style="color: red;">this field cannot be blank!</a>
+                            for="example"></label><input type="text" class="form-control form-control-user" id="HardDrive${value.id}" placeholder="Disco duro">
+                            <a id="Mdiscoduro${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
                     </div>
                     <a class="collapse-item"
-                        >TIPO
+                        >DISPONIBILIDAD
                     </a>
                     <div class="form-group">
                         <nav class="navbar navbar-expand navbar-light bg-light mb-4">
-                            <a class="navbar-brand" href="#">elije tipo</a>
+                            <a class="navbar-brand" >elije </a>
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item dropdown" id="barra${value.id}">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1${value.id}"
+                                        <a class="nav-link dropdown-toggle"  id="navbarDropdown1${value.id}"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Tipo
+                                            disponibilidad
                                         </a>
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown11${value.id}"
+                                        <a class="nav-link dropdown-toggle"  id="navbarDropdown11${value.id}"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Coordinador de Zona
+                                            Disponible
                                         </a>
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown22${value.id}"
+                                        <a class="nav-link dropdown-toggle"  id="navbarDropdown22${value.id}"
                                             role="button" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
-                                            Asesor Comercial
+                                            No disponible
                                         </a>
                                         <div id="client${value.id}"
                                                 class="dropdown-menu dropdown-menu-right animated--grow-in"
                                                 aria-labelledby="navbarDropdown">
-                                                <a onclick="selectType(1,${value.id})" class="dropdown-item" href="#">Coordinador de
-                                                Zona</a>
+                                                <a onclick="selectType(1,${value.id})" class="dropdown-item" >Disponible</a>
                                             <div class="dropdown-divider"></div>
-                                            <a onclick="selectType(2,${value.id})" class="dropdown-item" href="#">Asesor
-                                                Comercial</a>
+                                            <a onclick="selectType(2,${value.id})" class="dropdown-item" >No disponible</a>
                                         </div>
                                     </li>
                                 </ul>
                         </nav>
-                        <a id="MType${value.id}" style="color: red;">this field cannot be blank!</a>    
+                        <a id="Mdisponibilidad${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>    
                     </div>
+                    <a class="collapse-item"
+                        >PRECIO
+                    </a>
+                    <div class="form-group"><label
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Price${value.id}" placeholder="Precio">
+                            <a id="Mprecio${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
+                    </div>
+                    <a class="collapse-item"
+                        >CANTIDAD
+                    </a>
+                    <div class="form-group"><label
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Quantity${value.id}" placeholder="Cantidad">
+                            <a id="Mcantidad${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
+                    </div>
+                    <a class="collapse-item"
+                        >FOTOGRAFIA
+                    </a>
+                    <div class="form-group"><label
+                            for="example"></label><input type="text" class="form-control form-control-user" id="Photography${value.id}" placeholder="Fotografia">
+                            <a id="Mfotografia${value.id}" style="color: red;">Este campo no puede estar vacio!!</a>
+                    </div>                    
                     <div class="col-sm-6 mb-3 mb-sm-0"><a onclick="editarRegistro(${value.id})"
-                            class="btn btn-primary btn-user btn-block ">Update
-                            admin!</a></div>
+                            class="btn btn-primary btn-user btn-block ">Actualizar laptop!</a></div>
                     <div class="collapse-divider"></div>
                 </div>
             </div>
         </button>
-        <button onclick="deleteAdmin(${value.id})" style="background-color:#224abe"
+        <button onclick="deleteLaptop(${value.id})" style="background-color:#224abe"
         class="rectangular-circle border-6" id="Deletebuttom${value.id}"><a
         class="nav-link collapsed" href="#" 
         data-target="#collapsePages"><i
@@ -156,7 +177,7 @@ $(document).ready(function (e) {
         .catch(err => throwerr);
 */
     function clearfield() {
-        $("#Firstname").val(" ");
+        $("#model").val(" ");
         $("#Lastname").val(" ");
         $("#InputEmail").val(" ");
         $("#Age").val("");
@@ -166,14 +187,17 @@ $(document).ready(function (e) {
 function actualizar(llaveRegistro){
     $("#Deletebuttom"+llaveRegistro).toggle();
     $('#Mid'+llaveRegistro).hide();
-    $('#Midentification'+llaveRegistro).hide();
-    $('#Mname'+llaveRegistro).hide();
-    $('#Maddress'+llaveRegistro).hide();
-    $('#Mcelphone'+llaveRegistro).hide();
-    $('#Memail'+llaveRegistro).hide();
-    $('#Mpassword'+llaveRegistro).hide();
-    $('#Mzone'+llaveRegistro).hide();
-    $('#MType'+llaveRegistro).hide();
+    $('#Mmarca'+llaveRegistro).hide();
+    $('#Mmodelo'+llaveRegistro).hide();
+    $('#Mprocesador'+llaveRegistro).hide();
+    $('#Mos'+llaveRegistro).hide();
+    $('#Mdescripcion'+llaveRegistro).hide();
+    $('#Mmemoria'+llaveRegistro).hide();
+    $('#Mdiscoduro'+llaveRegistro).hide();
+    $('#Mdisponibilidad'+llaveRegistro).hide();
+    $('#Mprecio'+llaveRegistro).hide();
+    $('#Mcantidad'+llaveRegistro).hide();
+    $('#Mfotografia'+llaveRegistro).hide();
     $('#navbarDropdown11'+llaveRegistro).hide();
     $('#navbarDropdown22'+llaveRegistro).hide();
 }
@@ -186,15 +210,17 @@ function selectType(llaveRegistro, id) {
         if (llaveRegistro == 1) {
             $('#navbarDropdown11' + id).show(5);
             $('#navbarDropdown22' + id).hide(5);
-            $("#IDType").val(llaveRegistro);
+            availability=1;
+            //$("#IDType").val(llaveRegistro);
         } else {
             $('#navbarDropdown22' + id).show(5);
             $('#navbarDropdown11' + id).hide(5);
-            $("#IDType").val(llaveRegistro);
+            availability=2;
+            //$("#IDType").val(llaveRegistro);
         }
 }
 
-function deleteAdmin(llaveRegistro){
+function deleteLaptop(llaveRegistro){
     //crea un objeto javascript
     let datos={
         id: llaveRegistro
@@ -205,8 +231,8 @@ function deleteAdmin(llaveRegistro){
 
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "http://129.151.111.220:8080/api/user/"+llaveRegistro,
-        //url: "http://localhost:8080/api/user/"+llaveRegistro,
+        url: "http://129.151.111.220:8080/api/laptop/"+llaveRegistro,
+        //url: "http://localhost:8080/api/laptop/"+llaveRegistro,
 
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
@@ -246,48 +272,55 @@ function deleteAdmin(llaveRegistro){
 function editarRegistro(llaveRegistro) {
     console.log(llaveRegistro);
     var id = llaveRegistro;
-    var identification = $('#IDentification'+llaveRegistro).val();
-    var firstname = $('#Name'+llaveRegistro).val();
-    var address = $('#Address'+llaveRegistro).val();
-    var celphone = $('#Celphone'+llaveRegistro).val();
-    var email = $('#Email'+llaveRegistro).val();
-    var password = $('#Password'+llaveRegistro).val();
-    var zone = $('#Zone'+llaveRegistro).val();
-    var type = $('#IDType').val();
-    if(type==1){
-        type="COORD";
+    var brand = $('#Brand'+llaveRegistro).val();
+    var model = $('#Model'+llaveRegistro).val();
+    var procesor = $('#Procesor'+llaveRegistro).val();
+    var os = $('#OS'+llaveRegistro).val();
+    var description = $('#Description'+llaveRegistro).val();
+    var memory = $('#Memory'+llaveRegistro).val();
+    var hardDrive = $('#HardDrive'+llaveRegistro).val();
+    //var availability = $('#Availability'+llaveRegistro).val();
+    var price = $('#Price'+llaveRegistro).val();
+    var quantity = $('#Quantity'+llaveRegistro).val();
+    var photography = $('#Photography'+llaveRegistro).val();
+    if(availability==1){
+        availability="true";
     }else{
-        type="ASES";
+        availability="false";
     }
     console.log(id);
-    console.log(identification);
-    console.log(firstname);
-    console.log(address);
-    console.log(celphone);
-    console.log(email);
-    console.log(password);
-    console.log(zone);
-    console.log(type);
+    console.log(brand);
+    console.log(model);
+    console.log(procesor);
+    console.log(os);
+    console.log(description);
+    console.log(memory);
+    console.log(hardDrive);
+    console.log(availability);
 
     let datos={
         id:id,
-        identification:identification,
-        name: firstname,
-        address:address,
-        cellPhone:celphone,
-        email: email,
-        password: password,
-        zone: zone,
-        type:type
+        brand:brand,
+        model: model,
+        procesor:procesor,
+        os:os,
+        description: description,
+        memory: memory,
+        hardDrive: hardDrive,
+        availability:availability,
+        price:price,
+        quantity:quantity,
+        photography:photography
     }
 
     //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
     let datosPeticion = JSON.stringify(datos);
+    console.log(datosPeticion);
 
     if (validarEditar(llaveRegistro)) {
         $.ajax({
             // la URL para la petición (url: "url al recurso o endpoint")
-            url: "http://129.151.111.220:8080/api/user/update",
+            url: "http://localhost:8080/api/laptop/update",
 
             // la información a enviar
             // (también es posible utilizar una cadena de datos)
@@ -328,87 +361,115 @@ function editarRegistro(llaveRegistro) {
 }
 
 function validarEditar(llaveRegistro){
+    $("#Deletebuttom"+llaveRegistro).toggle();
     $('#Mid'+llaveRegistro).hide();
-    $('#Midentification'+llaveRegistro).hide();
-    $('#Mname'+llaveRegistro).hide();
-    $('#Maddress'+llaveRegistro).hide();
-    $('#Mcelphone'+llaveRegistro).hide();
-    $('#Memail'+llaveRegistro).hide();
-    $('#Mpassword'+llaveRegistro).hide();
-    $('#Mzone'+llaveRegistro).hide();
-    $('#MType'+llaveRegistro).hide();
-    $('#navbarDropdown1'+llaveRegistro).hide();
-    $('#navbarDropdown2'+llaveRegistro).hide();
+    $('#Mmarca'+llaveRegistro).hide();
+    $('#Mmodelo'+llaveRegistro).hide();
+    $('#Mprocesador'+llaveRegistro).hide();
+    $('#Mos'+llaveRegistro).hide();
+    $('#Mdescripcion'+llaveRegistro).hide();
+    $('#Mmemoria'+llaveRegistro).hide();
+    $('#Mdiscoduro'+llaveRegistro).hide();
+    $('#Mdisponibilidad'+llaveRegistro).hide();
+    $('#Mprecio'+llaveRegistro).hide();
+    $('#Mcantidad'+llaveRegistro).hide();
+    $('#Mfotografia'+llaveRegistro).hide();
+    $('#navbarDropdown11'+llaveRegistro).hide();
+    $('#navbarDropdown22'+llaveRegistro).hide();
     //obtiene valores
     let id = llaveRegistro;
-    let identification = $('#IDentification'+llaveRegistro).val();
-    let firstname = $('#Name'+llaveRegistro).val();
-    let address = $('#Address'+llaveRegistro).val();
-    let celphone = $('#Celphone'+llaveRegistro).val();
-    let email = $('#Email'+llaveRegistro).val();
-    let password = $('#Password'+llaveRegistro).val();
-    let zone = $('#Zone'+llaveRegistro).val();
-    let type = $('#IDType').val();
+    let brand = $('#Brand'+llaveRegistro).val();
+    let model = $('#Model'+llaveRegistro).val();
+    let procesor = $('#Procesor'+llaveRegistro).val();
+    let os = $('#OS'+llaveRegistro).val();
+    let description = $('#Description'+llaveRegistro).val();
+    let memory = $('#Memory'+llaveRegistro).val();
+    let hardDrive = $('#HardDrive'+llaveRegistro).val();
+   // let availability = $('#Availability').val();
+    let price = $('#Price'+llaveRegistro).val();
+    let quantity = $('#Quantity'+llaveRegistro).val();
+    let photography = $('#Photography'+llaveRegistro).val();
     console.log(id);
-    console.log(identification);
-    console.log(firstname);
-    console.log(address);
-    console.log(celphone);
-    console.log(email);
-    console.log(password);
-    console.log(zone);
-    console.log(type);
+    console.log(brand);
+    console.log(model);
+    console.log(procesor);
+    console.log(os);
+    console.log(description);
+    console.log(memory);
+    console.log(hardDrive);
+    console.log(availability);
+    console.log(price);
+    console.log(quantity);
+    console.log(photography);
     $("#mensajes").html("");
 
     //valida que los campos no sean vacios
-    if(validaesVacio(identification)) {
+    if(validaesVacio(brand)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Midentification"+llaveRegistro).show(500);
-        $("#IDentification").focus();
+        $("#Mbrand"+llaveRegistro).show(500);
+        $("#Brand").focus();
         return false;
-    }else if(validaesVacio(firstname)) {
+    }else if(validaesVacio(model)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Mname"+llaveRegistro).show(500);
-        $("#Firstname").focus();
+        $("#Model").focus();
         return false;
-    }else if(validaesVacio(address)) {
+    }else if(validaesVacio(procesor)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Maddress"+llaveRegistro).show(500);
-        $("#Address").focus();
+        $("#MProcesor"+llaveRegistro).show(500);
+        $("#procesor").focus();
         return false;
-    }else if(validaesVacio(celphone)) {
+    }else if(validaesVacio(os)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mcelphone"+llaveRegistro).show(500);
-        $("#Celphone").focus();
+        $("#Mos"+llaveRegistro).show(500);
+        $("#OS").focus();
         return false;
-    }else if(validaesVacio(email)) {
+    }else if(validaesVacio(description)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Memail"+llaveRegistro).show(500);
-        $("#InputEmail").focus();
+        $("#Mdescription"+llaveRegistro).show(500);
+        $("#Description").focus();
         return false;
-    }else if(validaesVacio(password)) {
+    }else if(validaesVacio(memory)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mpassword"+llaveRegistro).show(500);
+        $("#Mmemory"+llaveRegistro).show(500);
         $("#nameEdit").focus();
         return false;
-    }else if(validaesVacio(zone)) {
+    }else if(validaesVacio(hardDrive)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#Mzone"+llaveRegistro).show(500);
-        $("#Zone").focus();
+        $("#MHardDrive"+llaveRegistro).show(500);
+        $("#hardDrive").focus();
         return false;
     }
-    else if(validaesVacio(type)) {
+    else if(validaesVacio(availability)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
-        $("#MType"+llaveRegistro).show(500);
-        $("#Zone").focus();
+        $("#Mavailability"+llaveRegistro).show(500);
+        $("#hardDrive").focus();
+        return false;
+    }else if(validaesVacio(price)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mprice"+llaveRegistro).show(500);
+        $("#Price").focus();
+        return false;
+    }else if(validaesVacio(quantity)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#Mquantity"+llaveRegistro).show(500);
+        $("#Quantity").focus();
+        return false;
+    }else if(validaesVacio(photography)) {
+        errores="messagetext vacio<br>";
+        $("#mensajes").html(errores);
+        $("#photography"+llaveRegistro).show(500);
+        $("#Photography").focus();
         return false;
     }else{
         $("#mensajes").html("");

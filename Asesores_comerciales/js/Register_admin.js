@@ -40,7 +40,7 @@ $('#submitbtn').click(function (e) {
     console.log(type);
 
     let datos={
-        id:id,
+        //id:id,
         identification:identification,
         name: firstname,
         address:address,
@@ -57,7 +57,7 @@ $('#submitbtn').click(function (e) {
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
         url: "http://129.151.111.220:8080/api/user/new",
-       // url: "http://localhost:8080/api/user/new",
+        //url: "http://localhost:8080/api/user/new",
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
         //si el metodo del servicio recibe datos, es necesario definir el parametro adicional
@@ -150,13 +150,13 @@ function validarEditar(){
     $("#mensajes").html("");
 
     //valida que los campos no sean vacios
-    if(validaesVacio(id)) {
+   /* if(validaesVacio(id)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Mid").show(500);
         $("#ID").focus();
         return false;
-    }else if(validaesVacio(identification)) {
+    }else*/ if(validaesVacio(identification)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Midentification").show(500);

@@ -50,7 +50,7 @@ $('#submitbtn').click(function (e) {
     console.log(disponibilidad);
 
     let datos={
-        id:id,
+       // id:id,
         brand:marca,
         model: modelo,
         procesor:procesador,
@@ -174,13 +174,13 @@ function validarEditar(){
     $("#mensajes").html("");
 
     //valida que los campos no sean vacios
-    if(validaesVacio(id)) {
+    /*if(validaesVacio(id)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Mid").show(500);
         $("#ID").focus();
         return false;
-    }else if(validaesVacio(marca)) {
+    }else*/ if(validaesVacio(marca)) {
         errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#Mmarca").show(500);
