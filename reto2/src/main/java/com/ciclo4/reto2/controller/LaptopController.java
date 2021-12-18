@@ -2,6 +2,7 @@ package com.ciclo4.reto2.controller;
 
 import com.ciclo4.reto2.model.Laptop;
 import com.ciclo4.reto2.service.LaptopService;
+import com.ciclo4.reto2.service.MongoAutosecuencial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ public class LaptopController {
 
     @Autowired
     private LaptopService laptopService;
+    
+    @Autowired
+    private MongoAutosecuencial secuencia; 
 
     @GetMapping("/all")
     public List<Laptop> getAllLaptops(){
@@ -24,6 +28,9 @@ public class LaptopController {
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Laptop create(@RequestBody Laptop laptop){
+        if(laptop.getId()==null){
+          laptop.setId(secuencia.getSecuenceNumber(laptop.Sequence_name));   
+        }
         return laptopService.create(laptop);
     }
 

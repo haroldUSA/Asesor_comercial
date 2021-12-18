@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "laptops")
@@ -12,6 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class Laptop {
 
+    @Transient
+    public static final String Sequence_name ="laptop_sequence";
     @Id
     private Integer id;
     private String brand;
@@ -21,7 +24,7 @@ public class Laptop {
     private String description;
     private String memory;
     private String hardDrive;
-    private boolean availability = true;
+    private String availability;
     private double price;
     private int quantity;
     private String photography;

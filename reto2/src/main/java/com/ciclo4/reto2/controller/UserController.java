@@ -1,6 +1,7 @@
 package com.ciclo4.reto2.controller;
 
 import com.ciclo4.reto2.model.User;
+import com.ciclo4.reto2.service.MongoAutosecuencial;
 import com.ciclo4.reto2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private MongoAutosecuencial secuencia;
 
     @GetMapping("/all")
     public List<User> getAllUsers(){
@@ -34,6 +38,9 @@ public class UserController {
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public User create(@RequestBody User user){
+        if(user.getId()==null){
+          user.setId(secuencia.getSecuenceNumber(user.Sequence_name));   
+        }
         return userService.create(user);
     }
 
