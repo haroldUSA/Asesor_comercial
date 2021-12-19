@@ -1,6 +1,7 @@
 package com.ciclo4.reto3.controller;
 
 import com.ciclo4.reto3.model.Order;
+import com.ciclo4.reto3.service.MongoAutosecuencial;
 import com.ciclo4.reto3.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,9 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
+    
+    @Autowired
+    private MongoAutosecuencial secuencia;
 
     @GetMapping("/all")
     public List<Order> getAll() {
@@ -30,6 +34,9 @@ public class OrderController {
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Order create(@RequestBody Order gadget) {
+        if(gadget.getId()==null){
+          gadget.setId(secuencia.getSecuenceNumber(gadget.Sequence_name));   
+        }
         return orderService.create(gadget);
     }
 
