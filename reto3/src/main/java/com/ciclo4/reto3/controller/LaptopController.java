@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/laptop")
@@ -23,6 +24,11 @@ public class LaptopController {
     @GetMapping("/all")
     public List<Laptop> getAllLaptops(){
         return laptopService.getAll();
+    }
+    
+    @GetMapping("{id}")
+    public Optional<Laptop> getLaptop(@PathVariable("id")int id){
+        return laptopService.getLaptop(id);
     }
 
     @PostMapping("/new")

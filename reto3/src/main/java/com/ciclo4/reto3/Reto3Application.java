@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
-public class Reto2Application implements CommandLineRunner {							//Usar commandlinerunner permite vaciar la base de datos tras cada ejecución
+public class Reto3Application implements CommandLineRunner {							//Usar commandlinerunner permite vaciar la base de datos tras cada ejecución
 
 	@Autowired
 	private UserCrudRepository userRepo;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Reto2Application.class, args);
+		SpringApplication.run(Reto3Application.class, args);
 	}
 
 	@Override
