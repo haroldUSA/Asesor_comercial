@@ -1,7 +1,7 @@
-package com.ciclo4.reto3.service;
+package com.ciclo4.reto4.service;
 
-import com.ciclo4.reto3.model.Laptop;
-import com.ciclo4.reto3.repository.LaptopRepository;
+import com.ciclo4.reto4.model.Laptop;
+import com.ciclo4.reto4.repository.LaptopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

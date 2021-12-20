@@ -1,7 +1,7 @@
-package com.ciclo4.reto3.repository;
+package com.ciclo4.reto4.repository;
 
-import com.ciclo4.reto3.model.User;
-import com.ciclo4.reto3.repository.crud.UserCrudRepository;
+import com.ciclo4.reto4.model.User;
+import com.ciclo4.reto4.repository.crud.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

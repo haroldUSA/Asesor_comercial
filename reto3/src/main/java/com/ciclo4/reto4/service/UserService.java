@@ -1,7 +1,7 @@
-package com.ciclo4.reto3.service;
+package com.ciclo4.reto4.service;
 
-import com.ciclo4.reto3.model.User;
-import com.ciclo4.reto3.repository.UserRepository;
+import com.ciclo4.reto4.model.User;
+import com.ciclo4.reto4.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

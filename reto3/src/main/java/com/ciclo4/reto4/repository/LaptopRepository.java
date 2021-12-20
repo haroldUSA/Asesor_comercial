@@ -1,7 +1,7 @@
-package com.ciclo4.reto3.repository;
+package com.ciclo4.reto4.repository;
 
-import com.ciclo4.reto3.model.Laptop;
-import com.ciclo4.reto3.repository.crud.LaptopCrudRepository;
+import com.ciclo4.reto4.model.Laptop;
+import com.ciclo4.reto4.repository.crud.LaptopCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

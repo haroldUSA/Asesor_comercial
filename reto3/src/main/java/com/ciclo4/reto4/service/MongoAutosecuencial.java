@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ciclo4.reto3.service;
+package com.ciclo4.reto4.service;
 
-import com.ciclo4.reto3.model.DbSequence;
+import com.ciclo4.reto4.model.DbSequence;
 import org.springframework.stereotype.Service;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.beans.factory.annotation.Autowired;

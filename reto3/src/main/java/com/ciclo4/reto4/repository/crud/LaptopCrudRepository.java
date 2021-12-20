@@ -1,6 +1,6 @@
-package com.ciclo4.reto3.repository.crud;
+package com.ciclo4.reto4.repository.crud;
 
-import com.ciclo4.reto3.model.Laptop;
+import com.ciclo4.reto4.model.Laptop;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 

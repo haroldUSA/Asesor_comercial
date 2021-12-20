@@ -1,7 +1,8 @@
-package com.ciclo4.reto3.service;
+package com.ciclo4.reto4.service;
 
-import com.ciclo4.reto3.model.Order;
-import com.ciclo4.reto3.repository.OrderRepository;
+import com.ciclo4.reto4.model.Order;
+import com.ciclo4.reto4.repository.OrderRepository;
+import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -76,4 +77,15 @@ public class OrderService {
         return orderRepository.findByZone(zona);
     }
 
+    public List<Order> orderSalesManById(int id){
+        return orderRepository.orderSalesManById(id);
+    }
+    
+    public List<Order> orderSalesManByState(String state,Integer id){
+        return orderRepository.orderSalesManByState(state, id);
+    }
+    
+    public List<Order> orderSalesManByDate(String dateStrf,Integer id){
+        return orderRepository.orderSalesManByDate(dateStrf, id);
+    }
 }

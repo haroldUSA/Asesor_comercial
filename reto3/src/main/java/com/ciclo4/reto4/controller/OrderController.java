@@ -1,8 +1,8 @@
-package com.ciclo4.reto3.controller;
+package com.ciclo4.reto4.controller;
 
-import com.ciclo4.reto3.model.Order;
-import com.ciclo4.reto3.service.MongoAutosecuencial;
-import com.ciclo4.reto3.service.OrderService;
+import com.ciclo4.reto4.model.Order;
+import com.ciclo4.reto4.service.MongoAutosecuencial;
+import com.ciclo4.reto4.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +56,19 @@ public class OrderController {
     public List<Order> findByZone(@PathVariable("zona")String zona){
         return orderService.findByZone(zona);
     }
-
+    
+    @GetMapping("/salesman/{id}")
+    List<Order> orderSalesManById(@PathVariable("id")int id){
+        return orderService.orderSalesManById(id);
+    } 
+    
+    @GetMapping("/state/{state}/{id}")
+    public List<Order> orderSalesManByState(@PathVariable("state")String state,@PathVariable("id")int id){
+        return orderService.orderSalesManByState(state, id);
+    }
+    
+    @GetMapping("/date/{date}/{id}")
+    public List<Order> orderSalesManByDate(@PathVariable("date")String dateStrf,@PathVariable("id")int id){
+        return orderService.orderSalesManByDate(dateStrf, id);
+    }
 }

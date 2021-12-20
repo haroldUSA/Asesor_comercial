@@ -1,8 +1,8 @@
-package com.ciclo4.reto3.controller;
+package com.ciclo4.reto4.controller;
 
-import com.ciclo4.reto3.model.User;
-import com.ciclo4.reto3.service.MongoAutosecuencial;
-import com.ciclo4.reto3.service.UserService;
+import com.ciclo4.reto4.model.User;
+import com.ciclo4.reto4.service.MongoAutosecuencial;
+import com.ciclo4.reto4.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

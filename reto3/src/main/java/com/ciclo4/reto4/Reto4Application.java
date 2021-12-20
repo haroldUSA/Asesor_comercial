@@ -1,7 +1,7 @@
-package com.ciclo4.reto3;
+package com.ciclo4.reto4;
 
-import com.ciclo4.reto3.model.User;
-import com.ciclo4.reto3.repository.crud.UserCrudRepository;
+import com.ciclo4.reto4.model.User;
+import com.ciclo4.reto4.repository.crud.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
-public class Reto3Application implements CommandLineRunner {							//Usar commandlinerunner permite vaciar la base de datos tras cada ejecución
+public class Reto4Application implements CommandLineRunner {							//Usar commandlinerunner permite vaciar la base de datos tras cada ejecución
 
 	@Autowired
 	private UserCrudRepository userRepo;
 
 	public static void main(String[] args) {
-		SpringApplication.run(Reto3Application.class, args);
+		SpringApplication.run(Reto4Application.class, args);
 	}
 
 	@Override

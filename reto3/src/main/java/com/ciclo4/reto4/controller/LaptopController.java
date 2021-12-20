@@ -1,8 +1,8 @@
-package com.ciclo4.reto3.controller;
+package com.ciclo4.reto4.controller;
 
-import com.ciclo4.reto3.model.Laptop;
-import com.ciclo4.reto3.service.LaptopService;
-import com.ciclo4.reto3.service.MongoAutosecuencial;
+import com.ciclo4.reto4.model.Laptop;
+import com.ciclo4.reto4.service.LaptopService;
+import com.ciclo4.reto4.service.MongoAutosecuencial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

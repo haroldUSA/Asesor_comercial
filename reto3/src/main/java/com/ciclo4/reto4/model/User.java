@@ -1,4 +1,4 @@
-package com.ciclo4.reto3.model;
+package com.ciclo4.reto4.model;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;

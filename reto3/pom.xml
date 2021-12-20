@@ -11,7 +11,7 @@
 	<groupId>com.ciclo4</groupId>
 	<artifactId>reto3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>reto3</name>
+	<name>reto4</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
