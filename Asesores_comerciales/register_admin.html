@@ -53,10 +53,10 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <a id="Mid" style="color: red;">Este campo no puede estar vacio!</a>
+                                        <a id="Midentification" style="color: red;">Este campo no puede estar vacio!</a>
                                     </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <a id="Midentification" style="color: red;">Este campo no puede estar vacio!</a>
+                                        <a id="Mid" style="color: red;">Este campo no puede estar vacio!</a>
                                     </div>
                                 </div>        
                                 <div class="form-group row">
@@ -113,36 +113,42 @@
                                         <a id="Mzone" style="color: red;">Este campo no puede estar vacio!</a>
                                     </div>
                                 </div>
-                        </div>
-                        <div class="form-group">
-                            <nav class="navbar navbar-expand navbar-light bg-light mb-4">
-                                <a class="navbar-brand" href="#">seleccione un tipo! </a>
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item dropdown" id="barra">
-                                        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Tipo
-                                        </a>
-                                        <a class="nav-link dropdown-toggle"  id="navbarDropdown1" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Coordinador de Zona
-                                        </a>
-                                        <a class="nav-link dropdown-toggle"  id="navbarDropdown2" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Asesor Comercial
-                                        </a>
-                                        <div id="client" class="dropdown-menu dropdown-menu-right animated--grow-in"
-                                            aria-labelledby="navbarDropdown">
-                                            <a onclick="selectType(1)" class="dropdown-item" >Coordinador de
-                                                Zona</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a onclick="selectType(2)" class="dropdown-item" >Asesor
-                                                Comercial</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <a id="MType" style="color: red;">Este campo no puede estar vacio!</a>
+                                <div class="form-group row">
+                                    <input type="text" class="form-control form-control-user" id="datepicker" placeholder="Year" onkeypress="return false;"/>
+                                    <!--<input type="email" class="form-control form-control-user" id="Year"
+                                        placeholder="Category id">-->
+                                </div>
+                                <a id="Mdate" style="color: red;">Este campo no puede estar vacio!</a>
+                                <div class="form-group">
+                                    <nav class="navbar navbar-expand navbar-light bg-light mb-4">
+                                        <a class="navbar-brand">seleccione un tipo! </a>
+                                        <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item dropdown" id="barra">
+                                                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Tipo
+                                                </a>
+                                                <a class="nav-link dropdown-toggle"  id="navbarDropdown1" role="button"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Coordinador de Zona
+                                                </a>
+                                                <a class="nav-link dropdown-toggle"  id="navbarDropdown2" role="button"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Asesor Comercial
+                                                </a>
+                                                <div id="client" class="dropdown-menu dropdown-menu-right animated--grow-in"
+                                                    aria-labelledby="navbarDropdown">
+                                                    <a onclick="selectType(1)" class="dropdown-item" >Coordinador de
+                                                        Zona</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a onclick="selectType(2)" class="dropdown-item" >Asesor
+                                                        Comercial</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <a id="MType" style="color: red;">Este campo no puede estar vacio!</a>
+                                </div>        
                         </div>
                         <button id="submitbtn" class="btn btn-primary btn-user btn-block"><i class="fas fa-file"
                                 style="color: white;"></i> Registrar usuario</button>
@@ -176,6 +182,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="https://haroldrs1302.000webhostapp.com/js/sb-admin-2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"
+        rel="stylesheet" />
 
 </body>
 

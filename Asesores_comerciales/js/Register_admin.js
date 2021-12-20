@@ -12,6 +12,12 @@ $(document).ready(function (e) {
     $('#navbarDropdown1').hide(0);
     $('#navbarDropdown2').hide(0);
     $('#IDType').hide(0);
+    $('#Mdate').hide(0);
+
+    $("#datepicker").datepicker({
+        format: "yyyy-mm-dd",
+        autoclose: true,
+    })
 });
 $('#submitbtn').click(function (e) {
     e.preventDefault()
@@ -24,6 +30,8 @@ $('#submitbtn').click(function (e) {
     var password = $('#Password').val();
     var zone = $('#Zone').val();
     var type = $('#IDType').val();
+    var date = $('#datepicker').val();
+    var month= date.split("-");
     if(type==1){
         type="COORD";
     }else{
@@ -38,6 +46,9 @@ $('#submitbtn').click(function (e) {
     console.log(password);
     console.log(zone);
     console.log(type);
+    console.log(date);
+    console.log(month);
+    console.log(month[1]);    
 
     let datos={
         //id:id,
@@ -48,7 +59,9 @@ $('#submitbtn').click(function (e) {
         email: email,
         password: password,
         zone: zone,
-        type:type
+        type:type,
+        birthtDay:date,
+        monthBirthtDay:month[1]
     }
    
     let datosPeticion = JSON.stringify(datos);
